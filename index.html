@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="facebook-domain-verification" content="9rgcvaxiswg0nr6cdl5acq6m9kx7bf" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VAMP — Darkness Has a Brand</title>
+
+  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVKRBJY4CE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QVKRBJY4CE');
+</script>
+  
+<meta name="description" content="VAMP — Marca underground com estética vampiresca, roupas exclusivas e identidade visual sombria.">
+<meta name="author" content="VAMP">
+<meta name="keywords" content="VAMP, moda underground, vampiresco, streetwear, coleção limitada">
+
+<!-- Open Graph -->
+<meta property="og:title" content="VAMP — Darkness Has a Brand">
+<meta property="og:description" content="VAMP — Marca underground com estética vampiresca, roupas exclusivas e identidade visual sombria.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://inaciolaureano.github.io/vamp-site/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Nosifer&display=swap" rel="stylesheet">
+
+<!-- Inline CSS otimizado (faça external se preferir) -->
+<style>
+:root{
+  --bg:#000;
+  --fg:#e6e6e6;
+  --muted:#bbb;
+  --blood:#a30000; /* vermelhão sangrento (ajustável) */
+  --blood-dark:#700000;
+  --accent:var(--blood);
+  --max-width:1200px;
+}
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family: 'Montserrat', sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+
+/* Noise */
+.noise{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.04;
+  z-index:9998;
+}
+
+/* LAYOUT */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 4%}
+
+/* HEADER */
+.header{
+  position:fixed;top:0;left:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 4%;
+  background:rgba(0,0,0,0.5);
+  border-bottom:1px solid #0e0e0e;
+  backdrop-filter:blur(6px);
+  z-index:1000;
+}
+.logo img{height:100px;object-fit:contain;mix-blend-mode:lighten;transition:transform .3s}
+.logo a{display:inline-block}
+.header .menu{
+  display:flex;gap:28px;align-items:center;
+}
+.header .menu a{
+  color:var(--muted);text-decoration:none;font-weight:600;letter-spacing:1px;
+  transition:color .2s, transform .15s;
+}
+.header .menu a:hover{color:var(--accent);transform:translateY(-2px)}
+
+/* Mobile hamburger */
+.hamburger{
+  display:none;
+  width:44px;height:44px;border-radius:8px;
+  background:transparent;border:1px solid rgba(255,255,255,0.04);
+  align-items:center;justify-content:center;cursor:pointer;
+}
+.hamburger .bar{
+  width:20px;height:2px;background:var(--fg);position:relative;display:block;
+}
+.hamburger .bar::before,.hamburger .bar::after{
+  content:"";position:absolute;left:0;width:20px;height:2px;background:var(--fg);
+}
+.hamburger .bar::before{top:-6px}
+.hamburger .bar::after{top:6px}
+
+/* Mobile menu panel (hidden by default) */
+.mobile-menu{
+  display:none;
+  position:fixed;top:70px;right:20px;background:#070707;border:1px solid #111;padding:18px;border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);z-index:1100;
+}
+.mobile-menu a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
+
+/* HERO */
+.hero{
+  width:100%;
+  height:100vh;
+  background-image: url('assets/hero.jpg');
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding-top:90px; /* header space */
+}
+.hero::before{
+  /* sutil overlay somente na parte inferior (deixa o topo livre para o título) */
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:45%;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 100%);
+  z-index:1;
+  pointer-events:none;
+  mix-blend-mode:multiply;
+}
+.hero .hero-inner{position:relative;z-index:2;text-align:center;padding:0 6%}
+.hero h1{
+  font-weight:900;font-size:clamp(2.6rem,6vw,5.5rem);
+  line-height:0.92;margin-bottom:16px;
+  color:var(--blood);
+  font-family: 'Nosifer', cursive;
+  text-shadow: 0 8px 20px rgba(0,0,0,0.8), 0 2px 0 rgba(0,0,0,0.6);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.45);
+  transform:translateZ(0);
+}
+
+/* sangue escorrendo (pseudo) */
+.hero h1::after{
+  content:"";
+  position:absolute;
+  left:50%;transform:translateX(-50%);
+  top:calc(50% + 1.2rem);
+  width:80%;height:16px;
+  background:linear-gradient(180deg, transparent 0%, rgba(163,0,0,0.4) 30%, var(--blood) 100%);
+  filter:blur(6px);
+  opacity:0.85;
+  border-radius:40%;
+  pointer-events:none;
+}
+
+/* hero subtext */
+.hero p{
+  max-width:760px;margin:0 auto;color:#e9e9e9;font-size:clamp(.95rem,1.6vw,1.25rem);
+  text-shadow:0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* BOTÃO HERO (arranhado) */
+.btn-hero{
+  display:inline-block;margin-top:28px;padding:12px 34px;
+  font-weight:800;text-decoration:none;
+  color:#0b0b0b;background:var(--blood);
+  border-radius:6px;position:relative;overflow:visible;
+  z-index:3;letter-spacing:1px;
+  clip-path: polygon(6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
+  transition:transform .18s, box-shadow .18s, background .18s;
+  box-shadow: 0 8px 20px rgba(163,0,0,0.12), inset 0 -6px 18px rgba(0,0,0,0.25);
+}
+.btn-hero:hover{transform:translateY(-3px);background:var(--blood-dark);color:#fff}
+.btn-hero::before{
+  /* micro-arranhado decorativo (fina ponta triangular) */
+  content:"";position:absolute;right:-8px;top:0;
+  width:30px;height:100%;
+  background:linear-gradient(45deg, transparent 30%, rgba(0,0,0,0.18) 30%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  opacity:0.9;
+  transform:skewX(-6deg);
+}
+/* SECTIONS */
+.secao{padding:90px 0;opacity:0;transform:translateY(28px);transition:all .7s ease}
+.container .secao + .secao{padding-top:60px}
+.secao h2{
+  font-family:'Nosifer', cursive;
+  font-size:clamp(1.8rem,3.6vw,2.8rem);
+  color:var(--blood);margin-bottom:22px;
+  position:relative;
+  text-shadow:0 6px 18px rgba(0,0,0,0.7);
+}
+
+
+/* dripping effect for headings */
+.secao h2::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:-8px;height:12px;
+  background:linear-gradient(180deg, transparent 0%, rgba(163,0,0,0.25) 20%, var(--blood) 100%);
+  filter:blur(4px);
+  opacity:.85;
+  transform:translateY(0);
+  transition:transform .7s ease;
+}
+
+/* SOBRE */
+#sobre p{color:#ddd;font-size:1rem;margin-bottom:18px;max-width:880px}
+
+/* GALERIA */
+.galeria .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.galeria .item{
+  position:relative;padding-bottom:120%;background-size:cover;background-position:center;border-radius:8px;overflow:hidden;border:1px solid #0f0f0f;
+  box-shadow:0 6px 26px rgba(0,0,0,0.5);
+}
+.galeria .item::after{
+  /* lâmina/ruim sangue na borda */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg, rgba(163,0,0,0.06) 0%, rgba(163,0,0,0.12) 10%, rgba(0,0,0,0) 30%);
+  mix-blend-mode:overlay;pointer-events:none;
+}
+
+/* COLEÇÃO - cards full bleed */
+.cards-colecao{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.card{background:#060606;border-radius:8px;border:1px solid #0e0e0e;padding:0;overflow:hidden;transition:transform .28s,box-shadow .28s;opacity:0;transform:translateY(28px)}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(163,0,0,0.06)}
+.card img{width:100%;height:360px;object-fit:cover;display:block}
+.card h3{padding:14px 16px 0 16px;font-size:1.05rem;color:var(--blood);margin-bottom:6px;font-family:'Nosifer',cursive}
+.card p{padding:0 16px 18px 16px;color:var(--muted);font-size:.98rem}
+
+/* DEPOIMENTOS */
+.grid-depoimentos{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center;margin-top:1.2rem}
+.grid-depoimentos blockquote{
+  width:300px;background:#070707;border-radius:14px;border:1px solid rgba(163,0,0,0.16);padding:1.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);opacity:0;transform:translateY(22px);transition:transform .4s,box-shadow .3s;
+}
+.grid-depoimentos blockquote:hover{transform:translateY(0);box-shadow:0 20px 50px rgba(163,0,0,0.08)}
+.grid-depoimentos img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--blood);margin-bottom:12px}
+.grid-depoimentos p{font-style:italic;color:#efefef;margin-bottom:8px}
+.grid-depoimentos cite{font-weight:700;color:var(--blood)}
+
+/* CONTATO */
+.form-contato{display:flex;flex-direction:column;gap:12px;max-width:680px}
+.form-contato input,.form-contato textarea{
+  background:#0d0d0d;border:1px solid #1a1a1a;padding:12px;border-radius:6px;color:#eee;font-size:1rem;resize:vertical
+}
+.form-contato button{
+  width:fit-content;padding:12px 22px;background:var(--blood);color:#050505;border:none;border-radius:6px;font-weight:800;cursor:pointer;
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  transition:transform .18s, background .18s;
+}
+.form-contato button:hover{background:var(--blood-dark);transform:translateY(-3px)}
+
+/* FOOTER */
+.footer{padding:40px 0;border-top:1px solid #0e0e0e;background:linear-gradient(180deg,#000, #000000);margin-top:40px;text-align:center}
+.footer-links a{color:var(--muted);margin:0 12px;text-decoration:none}
+.footer p{color:#6b6b6b;margin-top:14px}
+
+/* reveal visible (JS toggles .is-visible) */
+.is-visible{opacity:1;transform:translateY(0) !important}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+  .logo img{height:86px}
+  .hero p{font-size:1rem}
+}
+@media (max-width:768px){
+  .header{padding:12px 4%}
+  .header .menu{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:none}
+  .container{padding:0 6%}
+  .hero{height:60vh;padding-top:70px}
+  .card img{height:260px}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.2rem)}
+  .logo img{height:86px}
+}
+@media (max-width:420px){
+  .logo img{height:76px}
+  .card img{height:200px}
+  .hero p{font-size:.95rem}
+}
+</style>
+
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" role="banner">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <div class="logo">
+      <a href="index.html" aria-label="VAMP Home">
+        <img src="assets/logo.png" alt="Logo VAMP" loading="lazy">
+      </a>
+    </div>
+
+    <nav class="menu" aria-label="Main menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" aria-expanded="false" aria-label="Abrir menu" id="hambBtn">
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" role="img" aria-label="Hero VAMP" style="background-image:url('assets/hero.jpg')">
+    <div class="hero-inner container">
+      <h1>Darkness Has a Brand</h1>
+      <p>A estética que respira noite, sangue, rua e brutalidade. Peças limitadas, atitude infinita.</p>
+      <a class="btn-hero"
+   href="javascript:void(0)"
+   onclick="comprarWhats('Camiseta VAMP')">
+   Compre Agora
+</a>
+
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="secao">
+    <div class="container">
+      <h2>Sobre A Vamp</h2>
+      <p>Na Vamp, não fugimos da escuridão — nós a encaramos. Sabemos que todo mundo carrega um lado oculto, um instinto silencioso, um peso que ninguém vê. Não é fraqueza. Não é drama. É humanidade. E, acima de tudo, é verdade.</p>
+
+      <p>Enquanto o mundo corre tentando parecer perfeito, nós escolhemos outro caminho: <strong>o da autenticidade brutal.</strong> Acreditamos que existe poder naquilo que você esconde, força naquilo que te marcou e identidade naquilo que te tornou diferente.</p>
+
+      <p>A Vamp existe para quem caminha entre luz e sombra, para quem abraça sua complexidade e para quem segue em frente mesmo quando a vida pesa. Não prometemos cura. Prometemos verdade.</p>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria" class="secao galeria">
+    <div class="container">
+      <h2>Galeria</h2>
+      <div class="grid">
+  <div class="item" style="background-image:url('assets/Camiseta Amor.exe.png');"></div>
+  <div class="item" style="background-image:url('assets/2-Frente Freedom.png');"></div>
+  <div class="item" style="background-image:url('assets/3-Costas Freedom.png');"></div>
+  <div class="item" style="background-image:url('assets/drop3 costas fundo branca.png');"></div>
+  <div class="item" style="background-image:url('assets/drop3 frente fundo branca.png');"></div>
+  <div class="item" style="background-image:url('assets/Vamp T-shirt idea_set01.png');"></div>
+  <div class="item" style="background-image:url('assets/Vamp_set01.png');"></div>
+  <div class="item" style="background-image:url('assets/peita Vamp x sótrick frente branca.png');"></div>
+  <div class="item" style="background-image:url('assets/peita Vamp x sótricka costas branca.png');"></div>
+  <div class="item" style="background-image:url('assets/drop2 costas preta.png');"></div>
+  <div class="item" style="background-image:url('assets/projetocalçamelkaranha.png');"></div>
+</div>
+  </div>
+  </section>
+
+  <!-- COLEÇÃO -->
+  <section id="colecao" class="secao colecao">
+    <div class="container">
+      <h2>Coleção</h2>
+      <div class="cards-colecao">
+        <article class="card">
+          <img loading="lazy" src="assets/Vamp T-shirt idea_set01.png" alt="Drop 01">
+          <h3>Drop 01</h3>
+          <p>Peças limitadas e exclusivas, caos com estilo.</p>
+          
+          <button class="btn-hero" style="margin:16px"
+    onclick="comprarWhats('Drop 01')">
+    Compre Agora
+  </button>
+        </article>
+
+        <article class="card">
+          <img loading="lazy" src="assets/peita2.png" alt="Drop 02">
+          <h3>Drop 02</h3>
+          <p>Design brutal e minimalista, sangue e rua.</p>
+          
+          <button class="btn-hero" style="margin:16px"
+    onclick="comprarWhats('Drop 02')">
+    Compre Agora
+  </button>
+        </article>
+
+        <article class="card">
+          <img loading="lazy" src="assets/Vamp_set01.png" alt="Drop 03">
+          <h3>Drop 03</h3>
+          <p>Peças que respiram identidade vampiresca.</p>
+          
+          <button class="btn-hero" style="margin:16px"
+    onclick="comprarWhats('Drop 03')">
+    Compre Agora
+  </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+ <section id="depoimentos" class="secao depoimentos">
+    <div class="container">
+      <h2>Depoimentos</h2>
+      <div class="grid-depoimentos">
+        <blockquote>
+          <img loading="lazy" src="assets/cliente1.jpg" alt="Cliente 1">
+          <p>"A VAMP mudou meu conceito de streetwear — brutal, autêntico e único!"</p>
+          <cite>- Dudu</cite>
+        </blockquote>
+
+        <blockquote>
+          <img loading="lazy" src="assets/cliente2.jpg" alt="Cliente 2">
+          <p>"Peças limitadas e com identidade, nada igual no mercado."</p>
+          <cite>- Victoria</cite>
+        </blockquote>
+
+        <blockquote>
+          <img loading="lazy" src="assets/cliente3.jpg" alt="Clientes">
+          <p>"É mais do que roupa, é estilo e atitude vampiresca."</p>
+          <cite>- Lia & Rafael</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="secao">
+    <div class="container">
+      <h2>Contato</h2>
+
+      <form class="form-contato" onsubmit="enviarWhatsApp(event)">
+        <label for="nome" style="color:#ddd;font-weight:700">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome" required>
+
+        <label for="mensagem" style="color:#ddd;font-weight:700">Mensagem</label>
+        <textarea id="mensagem" rows="5" placeholder="Digite sua mensagem" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <p>© 2026 VAMP — A Marca da Escuridão</p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+/* Mobile menu toggle */
+const hambBtn = document.getElementById('hambBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hambBtn.addEventListener('click', () => {
+  const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
+  hambBtn.setAttribute('aria-expanded', String(!expanded));
+  if (mobileMenu.style.display === 'block') {
+    mobileMenu.style.display = 'none';
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  } else {
+    mobileMenu.style.display = 'block';
+    mobileMenu.setAttribute('aria-hidden', 'false');
+  }
+});
+
+/* Reveal on scroll - optimized (IntersectionObserver) */
+const targets = document.querySelectorAll('.secao, .card, .grid-depoimentos blockquote, .hero');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      // unobserve to improve perf
+      io.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+targets.forEach(t => io.observe(t));
+
+/* WhatsApp submit */
+function enviarWhatsApp(e){
+  e.preventDefault();
+  const nome = document.getElementById("nome").value.trim();
+  const msg = document.getElementById("mensagem").value.trim();
+  const numero = "5531975176530";
+  const texto = encodeURIComponent(`Olá Vamp, meu nome é ${nome}.\n\nMensagem:\n${msg}`);
+  window.open(`https://wa.me/${numero}?text=${texto}`,'_blank');
+}
+
+/* Accessibility: close mobile menu on outside click */
+document.addEventListener('click', (ev) => {
+  if(!ev.target.closest('.mobile-menu') && !ev.target.closest('#hambBtn')){
+    if(mobileMenu.style.display === 'block'){
+      mobileMenu.style.display = 'none';
+      mobileMenu.setAttribute('aria-hidden','true');
+      hambBtn.setAttribute('aria-expanded','false');
+    }
+  }
+});
+</script>
+
+  <script>
+    
+const WHATS_NUMBER = "5531975176530";
+
+function comprarWhats(produto){
+  const texto = encodeURIComponent(
+    `Quero comprar: ${produto}\n\nVi no site da VAMP.`
+  );
+  window.open(`https://wa.me/${5531975176530}?text=${texto}`, "_blank");
+}
+</script>
+
+</body>
+</html>
