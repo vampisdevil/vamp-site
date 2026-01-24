@@ -1,1 +1,321 @@
+css site vamp origa:
 
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ===== NOISE BACKGROUND ===== */
+.noise {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.06;
+    z-index: 9999;
+}
+
+/* ===== HEADER ===== */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.65);
+    border-bottom: 1px solid #111;
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+}
+
+.logo img {
+    height: 60px;
+    object-fit: contain;
+    mix-blend-mode: lighten; /* ou screen / overlay */
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #ff1a1a;
+}
+
+/* ===== HERO ===== */
+.hero {
+    width: 100%;
+    height: 100vh;                   /* Ajustado para tela cheia no desktop */
+    background-size: cover;          /* Faz a imagem cobrir todo o espaço */
+    background-position: center;     /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6%;
+    margin-top: 90px;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.9));
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 550px;
+    line-height: 1.6;
+    color: #ddd;
+    z-index: 2;
+}
+
+.btn-hero {
+    margin-top: 30px;
+    background: #ff1a1a;
+    color: #000;
+    padding: 14px 30px;
+    font-weight: 700;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    background: #b30000;
+    color: #fff;
+}
+
+/* ===== SOBRE ===== */
+#sobre p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    color: #ddd;
+}
+
+/* ===== GALERIA ===== */
+.galeria .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.galeria .item {
+    width: 100%;
+    padding-bottom: 120%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    border: 1px solid #111;
+}
+
+/* ===== COLEÇÃO ===== */
+.cards-colecao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #0d0d0d;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #111;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .7s ease;
+}
+
+.card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #bbb;
+}
+
+/* DEPOIMENTOS */
+
+.grid-depoimentos{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.2rem;
+  justify-content:center;
+  margin-top:1.2rem;
+}
+
+.grid-depoimentos blockquote{
+  width:300px;
+  opacity: 0;
+  transform: translateY(22px);
+  background:#070707;
+  border-radius:14px;
+  border:1px solid rgba(163,0,0,0.16);
+  padding:1.4rem;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+  transition: opacity .4s, transform .4s, box-shadow .3s;
+
+}
+
+.grid-depoimentos blockquote:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(163,0,0,0.18);
+}
+
+.grid-depoimentos p{
+  font-style:italic;
+  color:#efefef;
+  margin-bottom:8px;
+}
+
+.grid-depoimentos cite{
+  font-weight:700;
+  color:var(--blood);
+}
+
+
+/* ===== SECTIONS ===== */
+.secao {
+    padding: 100px 8%;
+    opacity: 1;
+    transform: none;
+}
+
+
+.secao h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #ff1a1a;
+}
+
+
+/* ===== FORM CONTATO ===== */
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    background: #111;
+    border: 1px solid #222;
+    padding: 12px;
+    color: white;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-contato button {
+    background: #ff1a1a;
+    padding: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.form-contato button:hover {
+    background: #b30000;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid #111;
+    background: #000;
+    margin-top: 60px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #bbb;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff1a1a;
+}
+
+.footer p {
+    color: #777;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;                /* Altura reduzida para mobile */
+        background-size: contain;    /* Menos zoom, a imagem inteira aparece */
+        background-position: center; /* Mantém centralizada */
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+}
