@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Política de Trocas e Devoluções — VAMP</title>
+
+<meta name="description" content="Política de trocas, devoluções e reembolsos da VAMP.">
+<meta name="author" content="VAMP">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Nosifer&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#000;
+  --fg:#e6e6e6;
+  --muted:#bbb;
+  --blood:#a30000;
+  --blood-dark:#700000;
+  --max-width:1000px;
+}
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* noise */
+.noise{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.04;
+  z-index:9998;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 5%}
+
+/* HEADER */
+.header{
+  position:sticky;top:0;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid #111;
+  z-index:1000;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;
+}
+.logo img{height:72px;mix-blend-mode:lighten}
+
+/* HERO SIMPLE */
+.page-hero{
+  padding:120px 0 60px 0;
+  text-align:center;
+}
+.page-hero h1{
+  font-family:'Nosifer',cursive;
+  color:var(--blood);
+  font-size:clamp(2.2rem,5vw,3.5rem);
+  margin-bottom:16px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.8);
+}
+.page-hero p{
+  color:#ddd;
+  max-width:700px;
+  margin:0 auto;
+}
+
+/* CONTENT */
+.policy{
+  padding:40px 0 80px 0;
+}
+.policy-card{
+  background:#060606;
+  border:1px solid #111;
+  border-radius:12px;
+  padding:32px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.policy h2{
+  font-family:'Nosifer',cursive;
+  color:var(--blood);
+  font-size:1.5rem;
+  margin:32px 0 14px 0;
+}
+
+.policy p{
+  color:#ddd;
+  margin-bottom:14px;
+}
+
+.policy ul{
+  margin:10px 0 18px 18px;
+  color:#ddd;
+}
+
+.policy li{
+  margin-bottom:6px;
+}
+
+.badge{
+  display:inline-block;
+  background:rgba(163,0,0,0.15);
+  border:1px solid rgba(163,0,0,0.35);
+  color:#ffb3b3;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+/* footer */
+.footer{
+  border-top:1px solid #111;
+  padding:30px 0;
+  text-align:center;
+  color:#666;
+}
+
+/* responsive */
+@media(max-width:600px){
+  .policy-card{padding:22px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/logo.png" alt="Logo VAMP">
+    </a>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Trocas e Devoluções</h1>
+    <p>Transparência brutal. Processo claro. Segurança para você e para a VAMP.</p>
+  </div>
+</section>
+
+<section class="policy">
+  <div class="container">
+    <div class="policy-card">
+
+      <span class="badge">Atualizado</span>
+
+      <p>Na VAMP, trabalhamos com envio direto de parceiros logísticos. Nossa política segue o Código de Defesa do Consumidor e estabelece regras claras para trocas, devoluções e reembolsos.</p>
+
+      <h2>Direito de Arrependimento</h2>
+      <p>Você pode solicitar a devolução por arrependimento em até <strong>7 dias corridos após o recebimento</strong>.</p>
+
+      <ul>
+        <li>Produto sem sinais de uso</li>
+        <li>Com etiquetas intactas</li>
+        <li>Na embalagem original</li>
+        <li>Com todos os acessórios</li>
+      </ul>
+
+      <p>A solicitação deve ser feita antes do envio do produto. Devoluções sem autorização poderão ser recusadas.</p>
+
+      <h2>Produtos com Defeito</h2>
+      <p>Se houver defeito de fabricação, o contato deve ocorrer em até <strong>30 dias corridos</strong> após o recebimento.</p>
+
+      <ul>
+        <li>Envio de fotos ou vídeos do defeito</li>
+        <li>Informar número do pedido</li>
+        <li>Análise em até 7 dias úteis</li>
+      </ul>
+
+      <p>Após confirmação, a VAMP poderá realizar troca, vale-compra ou reembolso.</p>
+
+      <h2>Trocas por Preferência</h2>
+      <p>Trocas por tamanho, cor ou preferência:</p>
+
+      <ul>
+        <li>Produto sem uso e com etiquetas</li>
+        <li>Sujeito à disponibilidade</li>
+        <li>Fretes por conta do cliente</li>
+      </ul>
+
+      <h2>Processo Logístico</h2>
+      <p>Como operamos com diversos parceiros logísticos:</p>
+
+      <ul>
+        <li>Endereços de devolução podem variar</li>
+        <li>Coletas reversas podem ter prazos variáveis</li>
+        <li>Instruções são enviadas por e-mail</li>
+      </ul>
+
+      <p>Após receber as instruções, o cliente terá <strong>5 dias corridos</strong> para postar o produto.</p>
+
+      <h2>Reembolsos</h2>
+      <p>O reembolso ocorre após o recebimento e conferência do produto.</p>
+
+      <ul>
+        <li>Conferência: até 7 dias úteis</li>
+        <li>PIX ou boleto: até 10 dias úteis</li>
+        <li>Cartão: até 2 faturas da operadora</li>
+      </ul>
+
+      <h2>Custos de Frete</h2>
+      <ul>
+        <li>Arrependimento em 7 dias: VAMP paga</li>
+        <li>Defeito de fabricação: VAMP paga</li>
+        <li>Troca por preferência: cliente paga</li>
+      </ul>
+
+      <h2>Disposições Importantes</h2>
+      <ul>
+        <li>Endereço incorreto é responsabilidade do cliente</li>
+        <li>Recusa injustificada pode gerar novo frete</li>
+        <li>Produtos sem autorização podem ser recusados</li>
+        <li>Itens em promoção podem ter regras específicas</li>
+      </ul>
+
+      <h2>Solicitar Troca ou Devolução</h2>
+      <p>Envie um e-mail para:</p>
+      <p><strong>vampisdevil@gmail.com</strong></p>
+      <p>Assunto: Troca ou Devolução — Pedido #XXXX</p>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © 2026 VAMP — A Marca da Escuridão
+  </div>
+</footer>
+
+</body>
+</html>
